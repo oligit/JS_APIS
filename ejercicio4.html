@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+</head>
+<style>
+	article{
+		width: 500px;
+		height: 500px;
+		background-color: #000;
+	}
+	.nichos{
+		float: left;
+		width: 50%;
+		height: 50%;
+		/*padding: 5%;*/
+	}
+	.draggable{
+		float: left;
+		width: 90%;
+		height: 90%;
+		background-color: #A48700;
+	}
+	p{
+		font-size: 50px;
+		text-align: center;
+	}
+</style>
+<script>
+	jQuery(document).ready(function($) {
+		$('.draggable').attr('draggable', 'true');
+		$('.nichos').on('drop', function(event) {
+			event.preventDefault();
+			console.log(event);
+		});
+		$('.draggable').on('draggstart', function(event) {
+			
+		});
+	});
+</script>
+<body>
+	<article>
+		<div class="nichos">
+			<div class="draggable">
+				<p>1</p>
+			</div>
+		</div>
+			
+		<div class="nichos">
+			<div class="draggable">
+				<p>2</p>
+			</div>
+		</div>
+		<div class="nichos">
+			<div class="draggable">
+				<p>3</p>
+			</div>
+		</div>
+		<div class="nichos">
+			
+		</div>
+	</article>
+</body>
+</html>

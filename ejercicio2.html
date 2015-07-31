@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ejercicio 2</title>
+	<link rel="stylesheet" href="">
+	<style>
+		#mapa{
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+	<script>
+		window.onload = main;
+		function main (){
+			var b = {
+				center: new google.maps.LatLng(44.5403, -78.5463),
+				zoom: 8,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			var a = document.getElementById('mapa');
+			var map = new google.maps.Map(a,b);
+
+
+			google.maps.event.addListener(map, 'click', function(event){
+				document.getElementById("posicion").innerHTML = event.latLng;	
+			});
+		};
+		// console.log(b);
+	</script>
+</head>
+<body>
+	<div id="mapa">
+		
+	</div>
+	<p id="posicion"></p>
+</body>
+</html>

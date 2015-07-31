@@ -5,15 +5,36 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Ejercicio 1</title>
 	<link rel="stylesheet" href="">
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </head>
 <script>
   	document.addEventListener("DOMContentLoaded", main, false);	
-	
+	function main (event){
+		if (localStorage.visitas) {
+			localStorage.visitas++;
+			$('#salida2').html('Contador: <code>INICIADO</code>');
+		};
+		$('#iniciar').on('click', function(event) {
+			localStorage.setItem('visitas', 0);
+			//contador++;
+		});
+		$('#vaciar').on('click', function(event) {
+			localStorage.visitas = 0;
+		});
+		$('#mostrar').on('click', function(event) {
+			$('#salida').val(localStorage.visitas);
+		});
+		$('#recargar').on('click', function(event) {
+			location.reload();
+		});
+	};
 </script>
 <body>
 	<button id="iniciar">Iniciar contador</button>
 	<button id="vaciar">vaciar contador</button>
 	<button id="mostrar">mostrar contador</button>
 	<button id="recargar">recargar contador</button>
+	<input type="text" name="salida" placeholder="salida" id="salida">
+	<p id="salida2"></p>
 </body>
 </html>
